@@ -341,6 +341,14 @@ class OEmbed
     end
   end
 
+  def self.oembed_data(u,*attribs)
+    data = {}
+    unless (vschemes = @schemes.select { |a| u =~ a[0] }).empty?
+      regex, provider = vschemes.first
+      data = get_url_for_provider(u, provider, *attribs)
+    end
+    data
+  end
   # extraction of inner loop of .transform(), to allow for easier
   # parameterization of OEmbed
   def self.transform_url_for_text!(u, txt, *attribs, &block)
