@@ -34,7 +34,7 @@ module Net
 end
 
 
-require 'json'
+require 'activesupport'
 class FakeFetcher
   def name
     "fake_fetcher"
