@@ -1,4 +1,4 @@
-require 'json'
+require 'activesupport'
 
 class OEmbed
   module Formatters
@@ -9,7 +9,7 @@ class OEmbed
       end
 
       def format(txt)
-        ::JSON.parse(txt)
+        ActiveSupport::JSON.decode(txt)
       end
       
     end
